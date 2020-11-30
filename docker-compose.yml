@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  manager: # Name of the first service
+    build: . # Refers to a docker file
+    environment: # We need to put the csv filenmae
+      CSV_FILENAME: "data.csv"
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "database"
+
+    depends_on: 
+      - db
+  
+  db:
+    image: "postgres"
+    ports: 
+      - "5432:5432"
+    environment: # We give all the information needed to make the connection to the database
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "database"
+
