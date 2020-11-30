@@ -8,8 +8,7 @@ ADD manager /scripts
 
 #STEP 3 : We need to install all the dependencies
 
-ADD requirements.txt /requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install psycopg2
 
 #STEP 4: This is a script to wait on the database !
 
